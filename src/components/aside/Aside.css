@@ -9,10 +9,19 @@
 }
 
 .main-header__item {
+  list-style-type: none;
+}
+
+.main-header__link {
+  display: block;
+  text-decoration: none;
   color: #ffffff;
   font-weight: 700;
-  list-style-type: none;
   padding: 10px 5px;
+}
+
+.active {
+  color: #f1c40f;
 }
 
 

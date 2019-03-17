@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Post.css';
 
-function Post() {
+function Post(props) {
+  const { message } = props;
+  const { like } = props;
   return (
     <div className="post__item">
       <div className="post__img">
@@ -17,11 +20,21 @@ function Post() {
           </div>
         </div>
         <div className="post__text">
-          Post #1
+          { message }
+        </div>
+        <div className="post__stats">
+          <div className="post__like">
+            { like }
+            <span> like</span>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
+Post.propTypes = { message: PropTypes.string };
+Post.propTypes = { like: PropTypes.number };
+Post.defaultProps = { message: '' };
+Post.defaultProps = { like: '' };
 export default Post;

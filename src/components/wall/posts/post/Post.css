@@ -30,5 +30,9 @@
   margin-bottom: 5px;
 }
 
+.post__stats {
+  text-align: right;
+}
+
 
 /* end post */
