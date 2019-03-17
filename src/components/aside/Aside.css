@@ -1,0 +1,19 @@
+/* start aside */
+
+.aside {
+  background: #8e44ad;
+}
+
+.main-header {
+  margin: 20px;
+}
+
+.main-header__item {
+  color: #ffffff;
+  font-weight: 700;
+  list-style-type: none;
+  padding: 10px 5px;
+}
+
+
+/* end aside */

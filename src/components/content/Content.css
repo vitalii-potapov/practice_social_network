@@ -1,0 +1,41 @@
+/* start content */
+
+.content {
+  background: #ecf0f1;
+}
+
+.content-top {
+  height: 150px;
+}
+
+.content-top__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.content-middle {
+  display: flex;
+}
+
+.content-middle__img {
+  width: 30%;
+  object-fit: cover;
+}
+
+.content-middle__desc {
+  width: 70%;
+  margin: 20px;
+}
+
+.content_middle__title {
+  font-size: 1.4em;
+  margin-bottom: 20px;
+}
+
+.content_middle__info {
+  list-style-type: none;
+}
+
+
+/* end content */
