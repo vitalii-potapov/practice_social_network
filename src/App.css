@@ -8,6 +8,18 @@
   box-sizing: border-box;
 }
 
+img {
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 .app-wrapper {
   display: grid;
   grid-template-areas: "h h h" "a c c" "f f f";
@@ -32,8 +44,10 @@
   grid-area: f;
 }
 
-img {
-  width: 100%;
+.active {
+  color: #f1c40f;
+  font-size: 1.1em;
+  font-weight: 700;
 }
 
 
