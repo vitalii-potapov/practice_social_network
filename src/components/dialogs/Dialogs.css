@@ -1,0 +1,21 @@
+/* start Dialogs */
+
+.dialogs {
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+}
+
+.dialogs__list-of-names {
+  margin: 20px 0;
+  flex: 0 0 150px;
+  border-right: 1px solid silver;
+}
+
+.dialogs__messages {
+  margin: 20px 10px;
+  flex: 1 1 100%;
+}
+
+
+/* end Dialogs */
