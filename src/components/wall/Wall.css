@@ -4,5 +4,21 @@
   margin: 20px;
 }
 
+.wall__input {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  background: transparent;
+}
+
+.wall__button {
+  display: block;
+  margin-left: auto;
+}
+
+.wall hr {
+  margin: 20px 0;
+}
+
 
 /* end wall */

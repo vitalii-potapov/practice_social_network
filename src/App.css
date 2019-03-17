@@ -11,8 +11,9 @@
 .app-wrapper {
   display: grid;
   grid-template-areas: "h h h" "a c c" "f f f";
-  grid-template-rows: 5vh 80vh 15vh;
+  grid-template-rows: 5vh 1fr 15vh;
   grid-template-columns: 2fr 10fr;
+  min-height: 100vh
 }
 
 .header {
@@ -29,6 +30,10 @@
 
 .footer {
   grid-area: f;
+}
+
+img {
+  width: 100%;
 }
 
 
