@@ -10,24 +10,5 @@
   object-fit: cover;
 }
 
-.profile-middle {
-  display: flex;
-}
-
-.profile-middle__img {
-  width: 30%;
-  object-fit: cover;
-}
-
-.profile-middle__desc {
-  width: 70%;
-  margin: 20px;
-}
-
-.profile_middle__title {
-  font-size: 1.4em;
-  margin-bottom: 20px;
-}
-
 
 /* end profile */

@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './Post.css';
 
 function Post(props) {
-  const { id } = props;
-  const { message } = props;
-  const { like } = props;
+  const {
+    date,
+    id,
+    like,
+    message,
+    name,
+  } = props;
+
   return (
     <div className="post__item" id={id}>
       <div className="post__img">
@@ -14,18 +20,18 @@ function Post(props) {
       <div className="post__content">
         <div className="post__title">
           <div className="post__name">
-            Vitalii
+            {name}
           </div>
           <div className="post__date">
-            17.03.19
+            {date}
           </div>
         </div>
         <div className="post__text">
-          { message }
+          {message}
         </div>
         <div className="post__stats">
           <div className="post__like">
-            { like }
+            {like}
             <span> like</span>
           </div>
         </div>
@@ -34,10 +40,20 @@ function Post(props) {
   );
 }
 
-Post.propTypes = { id: PropTypes.number };
-Post.propTypes = { like: PropTypes.number };
-Post.propTypes = { message: PropTypes.string };
-Post.defaultProps = { id: '' };
-Post.defaultProps = { message: '' };
-Post.defaultProps = { like: '' };
+Post.propTypes = {
+  date: PropTypes.string,
+  id: PropTypes.number,
+  like: PropTypes.number,
+  message: PropTypes.string,
+  name: PropTypes.string,
+};
+
+Post.defaultProps = {
+  date: '',
+  id: '',
+  like: '',
+  message: '',
+  name: '',
+};
+
 export default Post;
