@@ -25,7 +25,7 @@ Content.propTypes = {
         PropTypes.number,
         PropTypes.string,
       ]).isRequired,
-      like: PropTypes.id,
+      like: PropTypes.number,
       message: PropTypes.string,
     }),
   ),

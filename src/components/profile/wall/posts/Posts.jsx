@@ -7,6 +7,7 @@ import './Posts.css';
 
 function Posts(props) {
   const { dataPosts } = props;
+
   const posts = dataPosts.map(post => (
     <Post
       date={post.date}
@@ -33,7 +34,7 @@ Posts.propTypes = {
         PropTypes.number,
         PropTypes.string,
       ]).isRequired,
-      like: PropTypes.id,
+      like: PropTypes.number,
       message: PropTypes.string,
       name: PropTypes.string,
     }),
