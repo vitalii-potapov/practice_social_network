@@ -25,10 +25,10 @@ function Wall(props) {
     <div className="wall">
       <textarea
         className="wall__input"
-        name="posts"
-        ref={newPostElement}
-        onChange={updateTextarea}
         cols="30"
+        name="posts"
+        onChange={updateTextarea}
+        ref={newPostElement}
         rows="5"
         value={dataNewPost}
       />

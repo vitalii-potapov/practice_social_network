@@ -37,6 +37,7 @@ const state = {
       { id: 3, message: 'Out particular sympathize not favourable introduced insipidity but ham.' },
       { id: 4, message: 'Rather number can and set praise. Distrusts an it contented perceived attending oh.' },
     ],
+    dataNewMessage: 'Введите ваше сообщение',
   },
 
   dispatch: (action) => {
@@ -55,6 +56,20 @@ const state = {
       state.pageProfile.dataNewPost = '';
     } else if (action.type === 'UpdateNewPost') {
       state.pageProfile.dataNewPost = action.newText;
+
+      reRenderEntireTree(state);
+    } else if (action.type === 'AddMessage') {
+      const newMessage = {
+        id: 5,
+        message: state.pageDialogs.dataNewMessage,
+      };
+
+      state.pageDialogs.dialogDataMessages.push(newMessage);
+
+      reRenderEntireTree(state);
+      state.pageDialogs.dataNewMessage = '';
+    } else if (action.type === 'UpdateNewMessage') {
+      state.pageDialogs.dataNewMessage = action.newText;
 
       reRenderEntireTree(state);
     }

@@ -3,12 +3,25 @@ import PropTypes from 'prop-types';
 
 import DialogItem from './dialogItem/DialogItem';
 import DialogMessage from './dialogMessage/DialogMessage';
+import { addMessageActionCreator, updateNewMessageActionCreator } from '../../action';
 
 import './Dialogs.css';
 
 function Dialogs(props) {
-  const { dialogDataNames, dialogDataMessages } = props;
-  const newPostElement = React.createRef();
+  const {
+    dispatch,
+    dataNewMessage,
+    dialogDataNames,
+    dialogDataMessages,
+  } = props;
+  const newMessageElement = React.createRef();
+
+  const addMessage = () => {
+    dispatch(addMessageActionCreator());
+  };
+  const updateTextarea = () => {
+    dispatch(updateNewMessageActionCreator(newMessageElement.current.value));
+  };
 
   const DialogNames = dialogDataNames.map(dialogName => (
     <DialogItem
@@ -25,10 +38,6 @@ function Dialogs(props) {
     />
   ));
 
-  const addPost = () => {
-
-  };
-
   return (
     <div className="dialogs">
       <ul className="dialogs__list-of-names">
@@ -37,8 +46,16 @@ function Dialogs(props) {
       <div className="dialogs__messages">
         {dialogMessages}
         <div className="dialogs__textarea">
-          <textarea name="dialogs__input" className="dialogs__input" id="" cols="30" rows="3" ref={newPostElement} />
-          <button className="wall__button" type="button" onClick={addPost}>Add post</button>
+          <textarea
+            className="dialogs__input"
+            cols="30"
+            name="dialogs__input"
+            onChange={updateTextarea}
+            ref={newMessageElement}
+            rows="3"
+            value={dataNewMessage}
+          />
+          <button className="wall__button" type="button" onClick={addMessage}>Add post</button>
         </div>
       </div>
     </div>
@@ -64,6 +81,8 @@ Dialogs.propTypes = {
       message: PropTypes.string,
     }),
   ),
+  dispatch: PropTypes.func,
+  dataNewMessage: PropTypes.string,
 };
 
 export default Dialogs;

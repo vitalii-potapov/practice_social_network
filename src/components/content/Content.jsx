@@ -27,7 +27,7 @@ function Content(props) {
           />
         )}
       />
-      <Route path="/dialogs" render={() => <Dialogs {...restProps} />} />
+      <Route path="/dialogs" render={() => <Dialogs dispatch={dispatch} {...restProps} />} />
     </section>
   );
 }
