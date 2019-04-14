@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 import DialogItem from './dialogItem/DialogItem';
 import DialogMessage from './dialogMessage/DialogMessage';
-import { addMessageActionCreator, updateNewMessageActionCreator } from '../../action';
+import { addMessageActionCreator, updateNewMessageActionCreator } from '../../redux/dialogs-reducer';
 
 import './Dialogs.css';
 
 function Dialogs(props) {
   const {
-    dispatch,
     dataNewMessage,
-    dialogDataNames,
     dialogDataMessages,
+    dialogDataNames,
+    dispatch,
   } = props;
   const newMessageElement = React.createRef();
 

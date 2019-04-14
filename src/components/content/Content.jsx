@@ -33,6 +33,7 @@ function Content(props) {
 }
 
 Content.propTypes = {
+  dataNewPost: PropTypes.string,
   dataPosts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([
@@ -44,7 +45,6 @@ Content.propTypes = {
     }),
   ),
   dispatch: PropTypes.func,
-  dataNewPost: PropTypes.string,
 };
 
 export default Content;

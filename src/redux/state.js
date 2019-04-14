@@ -1,4 +1,7 @@
 import reRenderEntireTree from '../render';
+import profileReducer from './profile-reducer';
+import dialogsReducer from './dialogs-reducer';
+import sidebarReducer from './sidebar-reducer';
 
 const state = {
   pageProfile: {
@@ -40,39 +43,16 @@ const state = {
     dataNewMessage: 'Введите ваше сообщение',
   },
 
+  sidebar: {
+
+  },
+
   dispatch: (action) => {
-    if (action.type === 'AddPost') {
-      const newPost = {
-        id: 3,
-        name: 'Bob',
-        message: state.pageProfile.dataNewPost,
-        like: 0,
-        date: '21.03.19',
-      };
+    state.pageProfile = profileReducer(state.pageProfile, action);
+    state.pageDialogs = dialogsReducer(state.pageDialogs, action);
+    state.sidebar = sidebarReducer(state.sidebar, action);
 
-      state.pageProfile.dataPosts.push(newPost);
-
-      reRenderEntireTree(state);
-      state.pageProfile.dataNewPost = '';
-    } else if (action.type === 'UpdateNewPost') {
-      state.pageProfile.dataNewPost = action.newText;
-
-      reRenderEntireTree(state);
-    } else if (action.type === 'AddMessage') {
-      const newMessage = {
-        id: 5,
-        message: state.pageDialogs.dataNewMessage,
-      };
-
-      state.pageDialogs.dialogDataMessages.push(newMessage);
-
-      reRenderEntireTree(state);
-      state.pageDialogs.dataNewMessage = '';
-    } else if (action.type === 'UpdateNewMessage') {
-      state.pageDialogs.dataNewMessage = action.newText;
-
-      reRenderEntireTree(state);
-    }
+    reRenderEntireTree(state);
   },
 };
 

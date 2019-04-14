@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Posts from './posts/Posts';
-import { addPostActionCreator, updateNewPostActionCreator } from '../../../action';
+import { addPostActionCreator, updateNewPostActionCreator } from '../../../redux/profile-reducer';
 
 import './Wall.css';
 
