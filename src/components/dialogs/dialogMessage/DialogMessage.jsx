@@ -17,9 +17,4 @@ DialogMessage.propTypes = {
   message: PropTypes.string,
 };
 
-DialogMessage.defaultProps = {
-  id: '',
-  message: '',
-};
-
 export default DialogMessage;

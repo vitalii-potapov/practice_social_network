@@ -18,9 +18,4 @@ DialogItem.propTypes = {
   name: PropTypes.string,
 };
 
-DialogItem.defaultProps = {
-  id: '',
-  name: '',
-};
-
 export default DialogItem;

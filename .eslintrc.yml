@@ -3,5 +3,8 @@
   "env": {
     "node": true,
     "browser": true
-  }
+  },
+  "rules": {
+    "react/require-default-props": 0,
+  },
 }

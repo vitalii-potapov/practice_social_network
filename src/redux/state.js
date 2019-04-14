@@ -1,5 +1,6 @@
-const state = {
+import reRenderEntireTree from '../render';
 
+const state = {
   pageProfile: {
     dataPosts: [
       {
@@ -17,6 +18,7 @@ const state = {
         date: '20.03.19',
       },
     ],
+    dataNewPost: 'Введите ваше сообщение',
   },
 
   pageDialogs: {
@@ -37,5 +39,26 @@ const state = {
     ],
   },
 
+  dispatch: (action) => {
+    if (action.type === 'AddPost') {
+      const newPost = {
+        id: 3,
+        name: 'Bob',
+        message: state.pageProfile.dataNewPost,
+        like: 0,
+        date: '21.03.19',
+      };
+
+      state.pageProfile.dataPosts.push(newPost);
+
+      reRenderEntireTree(state);
+      state.pageProfile.dataNewPost = '';
+    } else if (action.type === 'UpdateNewPost') {
+      state.pageProfile.dataNewPost = action.newText;
+
+      reRenderEntireTree(state);
+    }
+  },
 };
+
 export default state;

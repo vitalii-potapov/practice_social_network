@@ -41,6 +41,4 @@ Posts.propTypes = {
   ),
 };
 
-Posts.defaultProps = { dataPosts: '' };
-
 export default Posts;

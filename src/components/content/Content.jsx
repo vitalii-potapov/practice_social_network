@@ -8,11 +8,25 @@ import Dialogs from '../dialogs/Dialogs';
 import './Content.css';
 
 function Content(props) {
-  const { dataPosts, ...restProps } = props;
+  const {
+    dataPosts,
+    dispatch,
+    dataNewPost,
+    ...restProps
+  } = props;
 
   return (
     <section className="content">
-      <Route path="/profile" render={() => <Profile dataPosts={dataPosts} />} />
+      <Route
+        path="/profile"
+        render={() => (
+          <Profile
+            dataPosts={dataPosts}
+            dataNewPost={dataNewPost}
+            dispatch={dispatch}
+          />
+        )}
+      />
       <Route path="/dialogs" render={() => <Dialogs {...restProps} />} />
     </section>
   );
@@ -29,8 +43,8 @@ Content.propTypes = {
       message: PropTypes.string,
     }),
   ),
+  dispatch: PropTypes.func,
+  dataNewPost: PropTypes.string,
 };
-
-Content.defaultProps = { dataPosts: '' };
 
 export default Content;

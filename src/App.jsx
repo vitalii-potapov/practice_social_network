@@ -11,14 +11,14 @@ import './App.css';
 
 
 function App(props) {
-  const { pageProfile, pageDialogs } = props;
+  const { pageProfile, pageDialogs, ...restProps } = props;
 
   return (
     <div className="app-wrapper">
       <Header />
       <BrowserRouter>
         <Aside />
-        <Content {...pageProfile} {...pageDialogs} />
+        <Content {...pageProfile} {...pageDialogs} {...restProps} />
       </BrowserRouter>
       <Footer />
     </div>
@@ -30,10 +30,9 @@ App.propTypes = {
     dataPosts: PropTypes.array,
   }),
   pageDialogs: PropTypes.shape({
-    dataPosts: PropTypes.array,
+    dialogDataNames: PropTypes.array,
+    dialogDataMessages: PropTypes.array,
   }),
 };
-
-App.defaultProps = { pageProfile: '', pageDialogs: '' };
 
 export default App;

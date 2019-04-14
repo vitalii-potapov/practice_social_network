@@ -48,12 +48,4 @@ Post.propTypes = {
   name: PropTypes.string,
 };
 
-Post.defaultProps = {
-  date: '',
-  id: '',
-  like: '',
-  message: '',
-  name: '',
-};
-
 export default Post;
