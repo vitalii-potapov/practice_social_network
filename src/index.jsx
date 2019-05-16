@@ -1,6 +1,6 @@
 import * as serviceWorker from './serviceWorker';
 
-import state from './redux/state';
+import state from './redux/store';
 import reRenderEntireTree from './render';
 
 reRenderEntireTree(state);
