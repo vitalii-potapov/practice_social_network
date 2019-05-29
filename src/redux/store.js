@@ -1,6 +1,5 @@
-import reRenderEntireTree from '../render';
-import profileReducer from './profile-reducer';
-import dialogsReducer from './dialogs-reducer';
+import profileReducer from '../components/profile/wall/profile-reducer';
+import dialogsReducer from '../components/dialogs/dialogs-reducer';
 import sidebarReducer from './sidebar-reducer';
 
 const state = {
@@ -51,8 +50,6 @@ const state = {
     state.pageProfile = profileReducer(state.pageProfile, action);
     state.pageDialogs = dialogsReducer(state.pageDialogs, action);
     state.sidebar = sidebarReducer(state.sidebar, action);
-
-    reRenderEntireTree(state);
   },
 };
 

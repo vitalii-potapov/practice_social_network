@@ -3,34 +3,36 @@ import PropTypes from 'prop-types';
 
 import DialogItem from './dialogItem/DialogItem';
 import DialogMessage from './dialogMessage/DialogMessage';
-import { addMessageActionCreator, updateNewMessageActionCreator } from '../../redux/dialogs-reducer';
 
 import './Dialogs.css';
 
 function Dialogs(props) {
-  const {
-    dataNewMessage,
-    dialogDataMessages,
-    dialogDataNames,
-    dispatch,
-  } = props;
   const newMessageElement = React.createRef();
 
-  const addMessage = () => {
-    dispatch(addMessageActionCreator());
+  const {
+    addMessage,
+    updateMessage,
+    dataNewMessage,
+    dialogMessages,
+    dialogNames,
+  } = props;
+
+  const onAddMessage = () => {
+    addMessage();
   };
-  const updateTextarea = () => {
-    dispatch(updateNewMessageActionCreator(newMessageElement.current.value));
+  const onChangeMessage = () => {
+    const text = newMessageElement.current.value;
+    updateMessage(text);
   };
 
-  const DialogNames = dialogDataNames.map(dialogName => (
+  const names = dialogNames.map(dialogName => (
     <DialogItem
       id={dialogName.id}
       key={dialogName.id}
       name={dialogName.name}
     />
   ));
-  const dialogMessages = dialogDataMessages.map(dialogMessage => (
+  const messages = dialogMessages.map(dialogMessage => (
     <DialogMessage
       id={dialogMessage.id}
       key={dialogMessage.id}
@@ -41,21 +43,21 @@ function Dialogs(props) {
   return (
     <div className="dialogs">
       <ul className="dialogs__list-of-names">
-        {DialogNames}
+        {names}
       </ul>
       <div className="dialogs__messages">
-        {dialogMessages}
+        {messages}
         <div className="dialogs__textarea">
           <textarea
             className="dialogs__input"
             cols="30"
             name="dialogs__input"
-            onChange={updateTextarea}
+            onChange={onChangeMessage}
             ref={newMessageElement}
             rows="3"
             value={dataNewMessage}
           />
-          <button className="wall__button" type="button" onClick={addMessage}>Add post</button>
+          <button className="wall__button" type="button" onClick={onAddMessage}>Add post</button>
         </div>
       </div>
     </div>
@@ -63,26 +65,11 @@ function Dialogs(props) {
 }
 
 Dialogs.propTypes = {
-  dialogDataNames: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-      ]).isRequired,
-      name: PropTypes.string,
-    }),
-  ),
-  dialogDataMessages: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-      ]).isRequired,
-      message: PropTypes.string,
-    }),
-  ),
-  dispatch: PropTypes.func,
+  addMessage: PropTypes.func,
+  updateMessage: PropTypes.func,
   dataNewMessage: PropTypes.string,
+  dialogNames: PropTypes.array,
+  dialogMessages: PropTypes.array,
 };
 
 export default Dialogs;

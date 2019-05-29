@@ -2,23 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Posts from './posts/Posts';
-import { addPostActionCreator, updateNewPostActionCreator } from '../../../redux/profile-reducer';
 
 import './Wall.css';
 
 function Wall(props) {
+  const newPostElement = React.createRef();
+
   const {
-    dispatch,
+    addPost,
+    updatePost,
     dataNewPost,
     ...restProps
   } = props;
-  const newPostElement = React.createRef();
-  const newPost = () => {
-    dispatch(addPostActionCreator());
+
+  const onAddMessage = () => {
+    addPost();
   };
 
-  const updateTextarea = () => {
-    dispatch(updateNewPostActionCreator(newPostElement.current.value));
+  const onChangeMessage = () => {
+    const text = newPostElement.current.value;
+    updatePost(text);
   };
 
   return (
@@ -27,12 +30,12 @@ function Wall(props) {
         className="wall__input"
         cols="30"
         name="posts"
-        onChange={updateTextarea}
+        onChange={onChangeMessage}
         ref={newPostElement}
         rows="5"
         value={dataNewPost}
       />
-      <button className="wall__button" type="button" onClick={newPost}>Add post</button>
+      <button className="wall__button" type="button" onClick={onAddMessage}>Add post</button>
       <hr />
       <Posts {...restProps} />
     </div>
@@ -40,7 +43,8 @@ function Wall(props) {
 }
 
 Wall.propTypes = {
-  dispatch: PropTypes.func,
+  addPost: PropTypes.func,
+  updatePost: PropTypes.func,
   dataNewPost: PropTypes.string,
 };
 

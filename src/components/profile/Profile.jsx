@@ -1,12 +1,11 @@
 import React from 'react';
 
-import Wall from './wall/Wall';
 import MyProfile from './myProfile/MyProfile';
+import WallContainer from './wall/WallContainer';
+
 import './Profile.css';
 
-function Profile(props) {
-  const { ...restProps } = props;
-
+function Profile() {
   return (
     <div className="profile">
       <div className="profile-top">
@@ -16,7 +15,7 @@ function Profile(props) {
         <MyProfile />
       </div>
       <div className="profile-bottom">
-        <Wall {...restProps} />
+        <WallContainer />
       </div>
     </div>
   );
